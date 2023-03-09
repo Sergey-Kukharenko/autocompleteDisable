@@ -25,23 +25,19 @@
     </style>
   </head>
   <body>
-
-
-    <form name="my-form">
-      <input style="visibility: hidden" type="text" />
-      <input style="visibility: hidden" type="password" />
-      <!-- here put your current form field -->
-      <div>
-        <input
-            id="input"
-            class="input"
-            type="tel"
-            autocomplete="off"
-            placeholder="Your phone"
-            pattern="[0-9]*"
-        />
-      </div>
-    </form>
+    <div>
+      <input
+        id="input"
+        class="input"
+        type="tel"
+        placeholder="Your phone"
+        pattern="[0-9]*"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        autocorrect="off"
+      />
+    </div>
 
     <script>
       input.onblur = function (e) {
