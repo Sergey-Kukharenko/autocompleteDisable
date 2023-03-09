@@ -29,7 +29,7 @@
       <input
         id="input"
         class="input"
-        type="tel"
+
         placeholder="Your phone"
         pattern="[0-9]*"
         autocapitalize="off"
@@ -40,24 +40,24 @@
     </div>
 
     <script>
-      input.onblur = function (e) {
-        if (e.target.value.trim() === "+44") {
-          e.target.value = "";
-        }
-      };
-
-      input.onfocus = function (e) {
-        if (e.target.value.trim() === "") {
-          e.target.value = "+44";
-        }
-      };
-
-      input.onkeydown = function (e) {
-        const keyCode = e.keyCode;
-        if (keyCode < 43 || keyCode > 57) {
-          e.preventDefault();
-        }
-      };
+      // input.onblur = function (e) {
+      //   if (e.target.value.trim() === "+44") {
+      //     e.target.value = "";
+      //   }
+      // };
+      //
+      // input.onfocus = function (e) {
+      //   if (e.target.value.trim() === "") {
+      //     e.target.value = "+44";
+      //   }
+      // };
+      //
+      // input.onkeydown = function (e) {
+      //   const keyCode = e.keyCode;
+      //   if (keyCode < 43 || keyCode > 57) {
+      //     e.preventDefault();
+      //   }
+      // };
     </script>
   </body>
 </html>
