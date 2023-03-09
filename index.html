@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-  <style>
-    .input {
-      align-items: center;
-      background: #f7f7f7;
-      border-radius: 12px;
-      box-sizing: border-box;
-      font-size: 14px;
-      font-style: normal;
-      padding: 16px;
-      line-height: 20px;
-      border: none;
-      color: #000;
-      outline: none;
-      -webkit-appearance: none;
-    }
-  </style>
-</head>
-<body>
-<div>
-  <input id="input" class="input" type="tel" autocomplete="off" placeholder="Your phone" pattern="[0-9]*" readonly>
-</div>
+    <style>
+      .input {
+        align-items: center;
+        background: #f7f7f7;
+        border-radius: 12px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-style: normal;
+        padding: 16px;
+        line-height: 20px;
+        border: none;
+        color: #000;
+        outline: none;
+      }
 
-<script>
-  input.onblur = function (e) {
-    if (e.target.value.trim() === '+44') {
-      e.target.value = ''
-    }
-  };
+      input[autocomplete="off"]::-webkit-contacts-auto-fill-button,
+      input[autocomplete="off"]::-webkit-credentials-auto-fill-button {
+        visibility: hidden;
+        display: none !important;
+        pointer-events: none;
+        height: 0;
+        width: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input
+        id="input"
+        class="input"
+        type="tel"
+        autocomplete="off"
+        placeholder="Your phone"
+        pattern="[0-9]*"
+      />
+    </div>
 
-  input.onfocus = function (e) {
-    input.removeAttribute('readonly');
-    if (e.target.value.trim() === '') {
-      e.target.value = '+44'
-    }
-  };
+    <script>
+      input.onblur = function (e) {
+        if (e.target.value.trim() === "+44") {
+          e.target.value = "";
+        }
+      };
 
-  input.onkeydown = function (e) {
-    const keyCode = e.keyCode;
-    if (keyCode < 43 || keyCode > 57) {
-      e.preventDefault();
-    }
-  }
-</script>
+      input.onfocus = function (e) {
+        if (e.target.value.trim() === "") {
+          e.target.value = "+44";
+        }
+      };
 
-
-</body>
+      input.onkeydown = function (e) {
+        const keyCode = e.keyCode;
+        if (keyCode < 43 || keyCode > 57) {
+          e.preventDefault();
+        }
+      };
+    </script>
+  </body>
 </html>
