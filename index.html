@@ -9,7 +9,7 @@
   />
 
   <style>
-    .inputName {
+    .some {
       align-items: center;
       background: #f7f7f7;
       border-radius: 12px;
@@ -27,8 +27,8 @@
 <body>
 <div>
   <input
-      id="inputName"
-      class="inputName"
+      id="some"
+      class="some"
       name="some"
       placeholder="Your phone"
       pattern="[0-9]*"
@@ -37,6 +37,7 @@
 </div>
 
 <script>
+  const input = document.getElementById('some')
   input.onblur = function (e) {
     if (e.target.value.trim() === "+44") {
       e.target.value = "";
