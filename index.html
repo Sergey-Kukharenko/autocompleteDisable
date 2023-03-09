@@ -23,7 +23,7 @@
 </head>
 <body>
 <div>
-  <input id="input" class="input" type="text" autocomplete="off" placeholder="Your phone" pattern="[0-9]+">
+  <input id="input" class="input" type="number" autocomplete="off" placeholder="Your phone" pattern="[0-9]+">
 </div>
 
 <script>
@@ -40,12 +40,12 @@
     }
   };
 
-  // input.onkeydown = function (e) {
-  //   const keyCode = e.keyCode;
-  //   if (keyCode < 43 || keyCode > 57) {
-  //     e.preventDefault();
-  //   }
-  // }
+  input.onkeydown = function (e) {
+    const keyCode = e.keyCode;
+    if (keyCode < 43 || keyCode > 57) {
+      e.preventDefault();
+    }
+  }
 </script>
 
 
