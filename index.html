@@ -23,7 +23,7 @@
 </head>
 <body>
 <div>
-  <input id="input" class="input" type="text" autocomplete="off" placeholder="Your phone">
+  <input id="input" class="input" type="text" autocomplete="off" placeholder="Your phone" pattern="[0-9]+">
 </div>
 
 <script>
@@ -39,6 +39,13 @@
       e.target.value = '+44'
     }
   };
+
+  input.onkeydown = function (e) {
+    const keyCode = e.keyCode;
+    if (keyCode < 43 || keyCode > 57) {
+      e.preventDefault();
+    }
+  }
 </script>
 
 
