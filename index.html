@@ -45,7 +45,7 @@
   <input
       id="input"
       class="input"
-      name="search"
+      name="phone"
       type=""
       placeholder="Your phone"
       pattern="[0-9]*"
@@ -53,7 +53,7 @@
   />
 </div>
 
-<h1>empty</h1>
+<h1>phone</h1>
 
 <script>
   input.onblur = function (e) {
@@ -68,12 +68,12 @@
     }
   };
 
-  input.onkeydown = function (e) {
-    const keyCode = e.keyCode;
-    if (keyCode < 43 || keyCode > 57) {
-      e.preventDefault();
-    }
-  };
+  // input.onkeydown = function (e) {
+  //   const keyCode = e.keyCode;
+  //   if (keyCode < 43 || keyCode > 57) {
+  //     e.preventDefault();
+  //   }
+  // };
 </script>
 </body>
 </html>
