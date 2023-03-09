@@ -24,29 +24,29 @@
 </head>
 <body>
 <div>
-  <input id="input" class="input" type="tel" autocomplete="off" autocorrect="new-contact-name" placeholder="Your phone" pattern="[0-9]*">
+  <input id="input" class="input" type="tel" autocomplete="off" placeholder="Your phone" pattern="[0-9]*" readonly>
 </div>
 
 <script>
-  // input.onblur = function (e) {
-  //
-  //   if (e.target.value.trim() === '+44') {
-  //     e.target.value = ''
-  //   }
-  // };
-  //
-  // input.onfocus = function (e) {
-  //   if (e.target.value.trim() === '') {
-  //     e.target.value = '+44'
-  //   }
-  // };
+  input.onblur = function (e) {
+    if (e.target.value.trim() === '+44') {
+      e.target.value = ''
+    }
+  };
 
-  // input.onkeydown = function (e) {
-  //   const keyCode = e.keyCode;
-  //   if (keyCode < 43 || keyCode > 57) {
-  //     e.preventDefault();
-  //   }
-  // }
+  input.onfocus = function (e) {
+    input.removeAttribute('readonly');
+    if (e.target.value.trim() === '') {
+      e.target.value = '+44'
+    }
+  };
+
+  input.onkeydown = function (e) {
+    const keyCode = e.keyCode;
+    if (keyCode < 43 || keyCode > 57) {
+      e.preventDefault();
+    }
+  }
 </script>
 
 
