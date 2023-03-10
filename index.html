@@ -64,6 +64,8 @@
     </h1>
 
     <script>
+      const phone = document.getElementById('phone')
+
       phone.onblur = function (e) {
         if (e.target.value.trim() === "+44") {
           e.target.value = "";
@@ -76,14 +78,14 @@
         }
       };
 
-      phone.onKeypress = function (e) {
-        const keyCode = $event.keyCode ? $event.keyCode : $event.which;
+      phone.onkeypress = function (e) {
+        const keyCode = e.keyCode ? e.keyCode : e.which;
         if (
           (keyCode < 48 || keyCode > 57) &&
           keyCode !== 46 &&
           keyCode !== 43
         ) {
-          $event.preventDefault();
+          e.preventDefault();
         }
       };
     </script>
