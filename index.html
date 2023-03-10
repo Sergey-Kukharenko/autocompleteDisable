@@ -1,66 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <title>Title</title>
-  <meta
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
-  />
+    />
 
-  <style>
-    .input {
-      align-items: center;
-      background: #f7f7f7;
-      border-radius: 12px;
-      box-sizing: border-box;
-      font-size: 14px;
-      font-style: normal;
-      padding: 16px;
-      line-height: 20px;
-      border: none;
-      color: #000;
-      outline: none;
-    }
+    <style>
+      .input {
+        align-items: center;
+        background: #f7f7f7;
+        border-radius: 12px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-style: normal;
+        padding: 16px;
+        line-height: 20px;
+        border: none;
+        color: #000;
+        outline: none;
+      }
 
-    input[type='number'] {
-      -moz-appearance:textfield;
-    }
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-  </style>
-</head>
-<body>
-<div>
-  <input id="input" class="input" name="search" type="" placeholder="Your phone" pattern="[0-9]*" step="1" autocomplete="off"
-         inputmode="numeric">
-</div>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input
+        class="input"
+        name="search"
+        type=""
+        placeholder="Your name"
+        pattern="[a-zA-Z]*"
+        step="1"
+        autocomplete="off"
+        inputmode="numeric"
+      />
+      <input
+        id="phone"
+        class="input"
+        name="search"
+        type=""
+        placeholder="Your phone"
+        pattern="[0-9]*"
+        step="1"
+        autocomplete="off"
+        inputmode="numeric"
+      />
+    </div>
 
-<h1 style="display: none;">
-  id="input" class="input" name="search" type="" placeholder="Your phone" pattern="[0-9]*" autocomplete="off"
-  inputmode="numeric"
-</h1>
+    <h1 style="display: none">
+      id="input" class="input" name="search" type="" placeholder="Your phone"
+      pattern="[0-9]*" autocomplete="off" inputmode="numeric"
+    </h1>
 
+    <script>
+      phone.onblur = function (e) {
+        if (e.target.value.trim() === "+44") {
+          e.target.value = "";
+        }
+      };
 
-<script>
-  input.onblur = function (e) {
-    if (e.target.value.trim() === "+44") {
-      e.target.value = "";
-    }
-  };
+      phone.onfocus = function (e) {
+        if (e.target.value.trim() === "") {
+          e.target.value = "+44";
+        }
+      };
 
-  input.onfocus = function (e) {
-    if (e.target.value.trim() === "") {
-      e.target.value = "+44";
-    }
-  };
-
-  input.oninput = function (e) {
-    e.target.value = e.target.value.replace(/[^0-9.+]/g, '').replace(/(\..*?)\..*/g, '$1');
-  };
-</script>
-</body>
+      phone.onKeypress = function (e) {
+        const keyCode = $event.keyCode ? $event.keyCode : $event.which;
+        if (
+          (keyCode < 48 || keyCode > 57) &&
+          keyCode !== 46 &&
+          keyCode !== 43
+        ) {
+          $event.preventDefault();
+        }
+      };
+    </script>
+  </body>
 </html>
